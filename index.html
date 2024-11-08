@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link href="styles.css" rel="stylesheet" />
+
     
 </head>
-<body>
+<body class="">
+    <h1 align="center">Rock Paper Scissors</h1>
+
+    <div>
+
+    </div>
+
+    <table align="center">
+        
+        <tr>
+            <td align="center">User</td>
+            <td align="center">Computer</td>
+        </tr>
+        <tr>
+            <td align="center"><div class="score" id="humanscore" >0</div></td>
+            <td align="center"><div class="score" id="computerscore">0</div></td>
+        </tr>
+    </table>
+    
+    <div class="container">
+        <div class="item" onclick="playRound('rock');">Rock</div>
+        <div class="item" onclick="playRound('paper');">Paper</div>
+        <div class="item" onclick="playRound('scissor');">Scissor</div>  
+    </div>
+
+    <div align="center" style="margin-top: 20px;" id="result"></div>
+
+    <div align="center">
+        <button id="restart" onclick="restart();"> Restart </button>
+    </div>
+    
+
     <script src="scripts.js"></script>
 </body>
 </html>

@@ -34,7 +34,15 @@ function getHumanChoice() {
 var humanScore = 0;
 var computerScore = 0;
 
-function playRound(humanchoice, computerchoice){
+let humanscore = document.getElementById('humanscore');
+let computerscore = document.getElementById('computerscore');
+let reset = document.getElementById('reset');
+let result = document.getElementById('result');
+
+function playRound(humanchoice){
+
+    const computerchoice = getComputerChoice();
+
     if ((humanchoice == "rock") & (computerchoice == "scissor")){
         humanScore = humanScore + 1;
     }  
@@ -51,33 +59,31 @@ function playRound(humanchoice, computerchoice){
         computerScore = computerScore +1
     }
 
+    humanscore.innerText = humanScore;
+    computerscore.innerText = computerScore;
+
+    if ((humanScore === 5) & (humanScore>computerScore) ){
+        result.innerText = "Congratulation User You Won ";
+    }
+    else if ((computerScore === 5) & (humanScore<computerScore) ){
+        result.innerText = "Sorry You Lost ";
+    }
+
     console.log(humanchoice ,"|", humanScore,"|", computerchoice ,"|", computerScore);
     
 
 }
 
+function restart(){
+    humanScore = 0;
+    computerScore = 0 ;
+    humanscore.innerText = humanScore;
+    computerscore.innerText = computerScore;
+    reset.innerText = "";
 
-function playGame(rounds){
-    var i = 0 ;
-    while (i<rounds){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-
-        playRound(humanSelection, computerSelection);
-        i = i + 1;
-    }
-    if (humanScore > computerScore){
-        console.log("Congrat's You Won!");
-    }
-    else if (humanScore == computerScore){
-        console.log("Same Result.");
-    }
-    else{
-        console.log("Sorry, YOU LOST");
-    }
 }
 
-console.log("Wellcome  to Rock  Paper Scissors  !!");
-console.log("User","|" , "Score","|","computer","Score");
 
-playGame(5);
+
+
+
